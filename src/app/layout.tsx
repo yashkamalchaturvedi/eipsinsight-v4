@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Libre_Baskerville as LibreBaskervilleFont, Space_Grotesk as SpaceGroteskFont } from "next/font/google";
 import "./globals.css";
+import Navbar from "./(public)/_components/navbar";
 
 const Libre_Baskerville = LibreBaskervilleFont({
   variable: "--font-libre-baskerville",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 const Space_Grotesk = SpaceGroteskFont({
@@ -93,10 +95,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth dark">
       <body
         className={`${Libre_Baskerville.variable} ${Space_Grotesk.variable} antialiased`}
       >
+        <Navbar/>
         {children}
       </body>
     </html>
